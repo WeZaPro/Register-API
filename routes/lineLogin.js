@@ -7,7 +7,11 @@ const router = express.Router();
 // LINE Login Route
 router.post("/api/line-login", (req, res) => {
   console.log("line login");
-  const lineLoginUrl = `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=http://localhost:5000/api/line-callback&state=YOUR_RANDOM_STATE&scope=profile%20openid`;
+  const URI_CALLBACK =
+    "https://register-api-production-3bff.up.railway.app/api/line-callback";
+  const YOUR_CLIENT_ID = "2006618905";
+  const YOUR_RANDOM_STATE = "random_string_for_security";
+  const lineLoginUrl = `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=${YOUR_CLIENT_ID}&redirect_uri=${URI_CALLBACK}&state=${YOUR_RANDOM_STATE}&scope=profile%20openid`;
 
   // ส่ง URL กลับไปยัง frontend (Vue.js)
   res.json({ redirectUrl: lineLoginUrl });
