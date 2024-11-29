@@ -16,6 +16,7 @@ router.post("/api/line-login", (req, res) => {
 // LINE Callback Route
 router.get("/api/line-callback", async (req, res) => {
   const code = req.query.code; // รับค่า code จาก URL query
+  console.log("code from frontend -----> ", code);
 
   try {
     // แลกเปลี่ยน code เป็น access token จาก LINE
@@ -26,7 +27,8 @@ router.get("/api/line-callback", async (req, res) => {
         params: {
           grant_type: "authorization_code",
           code: code,
-          redirect_uri: "http://localhost:5000/api/line-callback", // ต้องตรงกับใน LINE Console
+          redirect_uri:
+            "https://register-api-production-3bff.up.railway.app/api/line-callback", // ต้องตรงกับใน LINE Console
           client_id: "2006618905",
           client_secret: "3328e0be9b61b5580ba7ffcdb2ccc3f5",
         },
