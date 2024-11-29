@@ -14,10 +14,14 @@ app.use(bodyParser.json());
 
 // เชื่อมต่อ MongoDB
 mongoose
-  .connect("mongodb://localhost:27017/BookingApp", {
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
-  })
+  //   .connect("mongodb://localhost:27017/BookingApp", {
+  .connect(
+    "mongodb+srv://Conversion:CgKBo4mYiE0VXWvG@cluster0.glzp6c8.mongodb.net/BookingApp",
+    {
+      // useNewUrlParser: true,
+      // useUnifiedTopology: true,
+    }
+  )
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
