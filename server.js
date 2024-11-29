@@ -28,6 +28,11 @@ mongoose
 // ใช้ route สำหรับ LINE Login
 app.use(lineLoginRouter);
 
+// simple route
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to booking app application." });
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
